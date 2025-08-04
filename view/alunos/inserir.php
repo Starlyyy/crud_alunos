@@ -24,10 +24,15 @@ if(isset($_POST['nome'])) {
 
     //Chamar o DAO para salvar o objeto Aluno
     $alunoCont = new AlunoController();
-    $alunoCont->inserir($aluno);
+    $erros = $alunoCont->inserir($aluno);
 
     //Redirecionar para o listar
-    header("location: listar.php");
+    if (!$erros) {
+        header("location: listar.php");
+        # code...
+    } else {
+        $msgErro = implode("<br>", $erros);
+    }
 }
 
 

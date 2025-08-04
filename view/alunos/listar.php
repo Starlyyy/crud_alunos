@@ -18,7 +18,7 @@
     <a href="inserir.php">Inserir</a>
 </div>
 
-<table border="400">
+<table border="1">
     <!-- Cabeçalho -->
     <tr>
         <th>ID</th>

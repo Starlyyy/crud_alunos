@@ -24,12 +24,16 @@ class AlunoDAO {
     }
 
     public function inserir(Aluno $aluno) {
-        $sql = "INSERT INTO alunos (nome, idade, estrangeiro, id_curso)
-                VALUES (?, ?, ?, ?)";
-        $stm = $this->conexao->prepare($sql);
-        $stm->execute([$aluno->getNome(), $aluno->getIdade(), 
-                       $aluno->getEstrangeiro(),
-                       $aluno->getCurso()->getId()]);
+        try {
+            $sql = "INSERT INTO alunos (nome, idade, estrangeiro, id_curso)
+                    VALUES (?, ?, ?, ?)";
+            $stm = $this->conexao->prepare($sql);
+            $stm->execute([$aluno->getNome(), $aluno->getIdade(), 
+                           $aluno->getEstrangeiro(),
+                           $aluno->getCurso()->getId()]);
+        } catch (PDOException $e) {
+            return "ERRO AO SALVAR O REGISTRO";
+        }
     }
 
     private function map(array $result) {

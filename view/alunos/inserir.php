@@ -6,10 +6,10 @@ require_once(__DIR__ . "/../../controller/AlunoController.php");
 //Receber os dados do formulário
 if(isset($_POST['nome'])) {
     //Usuário já clicou no gravar
-    $nome  = trim($_POST['nome']) ? trim($_POST['nome']) : null ;
-    $idade = $_POST['idade'];
+    $nome        = trim($_POST['nome']) ? trim($_POST['nome']) : null ;
+    $idade       = is_numeric($_POST['idade']) ? $_POST['idade'] : null ;
     $estrangeiro = trim($_POST['estrang']) ? trim($_POST['estrang']) : null;
-    $idCurso = $_POST['curso'];
+    $idCurso     = is_numeric($_POST['curso']) ? $_POST['curso'] : null;;
 
     //Criar um objeto Aluno para persistí-lo
     $aluno = new Aluno();

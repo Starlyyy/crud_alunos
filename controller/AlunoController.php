@@ -17,7 +17,17 @@ class AlunoController {
     }
 
     public function inserir(Aluno $aluno) {
-        $this->alunoDAO->inserir($aluno);
+
+        $erros = [];
+
+        $erro = $this->alunoDAO->inserir($aluno);
+
+        if ($erro) {
+            array_push($erros, "Erro ao salvar o aluno!");
+            array_push($erros, $erro->getMessage());
+        }
+
+        return $erros;
     }
 
 }

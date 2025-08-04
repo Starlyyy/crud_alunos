@@ -31,8 +31,10 @@ class AlunoDAO {
             $stm->execute([$aluno->getNome(), $aluno->getIdade(), 
                            $aluno->getEstrangeiro(),
                            $aluno->getCurso()->getId()]);
+            return null;
+
         } catch (PDOException $e) {
-            return "ERRO AO SALVAR O REGISTRO";
+            return $e;
         }
     }
 

@@ -53,6 +53,10 @@ include_once(__DIR__ . "/../include/header.php");
 
 </form>
 
+<div>
+    <a href="listar.php">voltar</a>
+</div>
+
 
 <?php
     include_once(__DIR__ . "/../include/footer.php");

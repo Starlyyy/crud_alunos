@@ -54,6 +54,10 @@ include_once(__DIR__ . "/../include/header.php");
 </form>
 
 <div>
+    <?= $msgErro ?>
+</div>
+
+<div>
     <a href="listar.php">voltar</a>
 </div>
 

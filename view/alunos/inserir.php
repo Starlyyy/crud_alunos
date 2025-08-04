@@ -3,6 +3,8 @@
 require_once(__DIR__ . "/../../model/Aluno.php");
 require_once(__DIR__ . "/../../controller/AlunoController.php");
 
+$msgErro = "";
+
 //Receber os dados do formulário
 if(isset($_POST['nome'])) {
     //Usuário já clicou no gravar
@@ -32,6 +34,7 @@ if(isset($_POST['nome'])) {
         # code...
     } else {
         $msgErro = implode("<br>", $erros);
+        // echo $msgErro;
     }
 }
 

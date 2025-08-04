@@ -24,7 +24,9 @@ class AlunoController {
 
         if ($erro) {
             array_push($erros, "Erro ao salvar o aluno!");
-            array_push($erros, $erro->getMessage());
+            if(AMB_DEV) {
+                array_push($erros, $erro->getMessage());
+            }
         }
 
         return $erros;

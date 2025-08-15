@@ -19,6 +19,11 @@ class AlunoController {
         return $lista;
     }
 
+    public function buscarPorId(int $id){
+        $aluno = $this->alunoDAO->buscarPorId($id);
+        return $aluno;
+    }
+
     public function inserir(Aluno $aluno) {
 
         $erros = $this->alunoService->validarAluno($aluno);
@@ -42,6 +47,10 @@ class AlunoController {
         }
 
         return $erros;
+    }
+
+    public function alterar(Aluno $aluno, int $id) {
+        $aluno = $this->alunoDAO->alterar($aluno , $id);
     }
 
 }

@@ -38,7 +38,7 @@
             <td><?= $aluno->getIdade() ?></td>
             <td><?= $aluno->getEstrangeiroTexto() ?></td>
             <td><?= $aluno->getCurso() ?></td>
-            <td></td>
+            <td> <a href="alterar.php"><img src="../../img/btn_editar.png" alt="btn_editar"></a></td>
             <td></td>
         </tr>
     <?php endforeach; ?>

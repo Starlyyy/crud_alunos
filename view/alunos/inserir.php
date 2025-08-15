@@ -4,10 +4,14 @@ require_once(__DIR__ . "/../../model/Aluno.php");
 require_once(__DIR__ . "/../../controller/AlunoController.php");
 
 $msgErro = "";
+$aluno = NULL;
 
 //Receber os dados do formulário
+
 if(isset($_POST['nome'])) {
+
     //Usuário já clicou no gravar
+
     $nome        = trim($_POST['nome']) ? trim($_POST['nome']) : null ;
     $idade       = is_numeric($_POST['idade']) ? $_POST['idade'] : null ;
     $estrangeiro = trim($_POST['estrang']) ? trim($_POST['estrang']) : null;
@@ -19,9 +23,13 @@ if(isset($_POST['nome'])) {
     $aluno->setIdade($idade);
     $aluno->setEstrangeiro($estrangeiro);
 
-    $curso = new Curso();
-    $curso->setId($idCurso);
-    $aluno->setCurso($curso);
+    if ($idCurso) {
+        $curso = new Curso();
+        $curso->setId($idCurso);
+        $aluno->setCurso($curso);
+    } else {
+        $aluno->setCurso(NULL);
+    }
     //print_r($aluno);
 
     //Chamar o DAO para salvar o objeto Aluno

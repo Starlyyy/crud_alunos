@@ -7,8 +7,8 @@ error_reporting(E_ALL);
 //Configurar essas variáveis de acordo com o seu ambiente
 define("DB_HOST", "localhost");
 define("DB_NAME", "db_alunos");
-define("DB_USER", "root");
-define("DB_PASSWORD", "bancodedados");
+define("DB_USER", "izabella");
+define("DB_PASSWORD", "09092008");
 
 //configuracao do ambiente
 define("AMB_DEV", true);

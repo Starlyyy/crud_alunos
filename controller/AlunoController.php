@@ -49,8 +49,27 @@ class AlunoController {
         return $erros;
     }
 
-    public function alterar(Aluno $aluno, int $id) {
-        $aluno = $this->alunoDAO->alterar($aluno , $id);
+    public function alterar(Aluno $aluno) {
+
+        $erros = $this->alunoService->validarAluno($aluno);
+
+        if (count($erros) > 0) {
+            return $erros;
+        }
+
+        //se nao deu erros, alterar o aluno no banco de dados
+
+        $erro = $this->alunoDAO->alterar($aluno);
+
+        if ($erro) {
+            array_push($erros, "Erro ao atualizar o aluno!");
+            if(AMB_DEV) {
+                array_push($erros, $erro->getMessage());
+            }
+        }
+
+        return $erros;
+
     }
 
 }

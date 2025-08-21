@@ -10,9 +10,10 @@ $msgErro = "";
 
 if (isset($_POST['nome'])) {
     //ja clicou
-
+    
     //1- capturar os dados do formulario
-
+    
+    $id = 0;
     $nome        = trim($_POST['nome']) ? trim($_POST['nome']) : null ;
     $idade       = is_numeric($_POST['idade']) ? $_POST['idade'] : null ;
     $estrangeiro = trim($_POST['estrang']) ? trim($_POST['estrang']) : null;
@@ -25,27 +26,28 @@ if (isset($_POST['nome'])) {
     $aluno->setEstrangeiro($estrangeiro);
 
     if ($idCurso) {
+
         $curso = new Curso();
         $curso->setId($idCurso);
         $aluno->setCurso($curso);
+
     } else {
         $aluno->setCurso(NULL);
     }
 
     $alunoCont = new AlunoController();
-    $erros = $alunoCont->alterar($aluno, $id);
+    $erros = $alunoCont->alterar($aluno);
 
     //Redirecionar para o listar
     if (!$erros) {
         header("location: listar.php");
-        # code...
     } else {
         $msgErro = implode("<br>", $erros);
-        // echo $msgErro;
     }
+
     //2- chamar o controller para alterar
 
-    echo "ja clicou, ze";
+    // echo "ja clicou, ze";
 
 } else {
 

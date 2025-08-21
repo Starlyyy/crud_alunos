@@ -50,7 +50,9 @@ class AlunoDAO {
         try {
             $sql = "INSERT INTO alunos (nome, idade, estrangeiro, id_curso)
                     VALUES (?, ?, ?, ?)";
+
             $stm = $this->conexao->prepare($sql);
+
             $stm->execute([$aluno->getNome(), $aluno->getIdade(), 
                            $aluno->getEstrangeiro(),
                            $aluno->getCurso()->getId()]);
@@ -61,8 +63,26 @@ class AlunoDAO {
         }
     }
 
-    public function alterar(Aluno $aluno, int $id) {
-        $sql = "UPDATE "
+    public function alterar(Aluno $aluno) {
+        try {
+            $sql = "UPDATE alunos SET nome = ?,
+                                      idade = ?,
+                                      estrangeiro = ?,
+                                      id_curso = ?
+                    WHERE id = ?";
+    
+            $stm = $this->conexao->prepare($sql);
+            $stm->execute([
+                $aluno->getNome(), $aluno->getIdade(), 
+                $aluno->getEstrangeiro(), $aluno->getCurso()->getId(), 
+                $aluno->getId()
+            ]);
+            
+            return null;
+
+        } catch (PDOException $e) {
+            return $e;
+        }
     }
 
     private function map(array $result) {

@@ -39,7 +39,9 @@
             <td><?= $aluno->getEstrangeiroTexto() ?></td>
             <td><?= $aluno->getCurso() ?></td>
             <td> <a href="alterar.php?id=<?= $aluno->getId()?>"><img src="../../img/btn_editar.png" alt="btn_editar"></a></td>
-            <td><a href="excluir.php?id=<?= $aluno->getId()?>"><img src="../../img/btn_excluir.png" alt="btn_editar"></a></td>
+            <td><a href="excluir.php?id=<?= $aluno->getId()?>" onclick="return confirm('Deseja exluir?')">
+                <img src="../../img/btn_excluir.png" alt="btn_editar">
+            </a></td>
         </tr>
     <?php endforeach; ?>
 

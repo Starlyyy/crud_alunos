@@ -19,6 +19,7 @@ if(isset($_POST['nome'])) {
 
     //Criar um objeto Aluno para persistí-lo
     $aluno = new Aluno();
+    $aluno->setId(0);
     $aluno->setNome($nome);
     $aluno->setIdade($idade);
     $aluno->setEstrangeiro($estrangeiro);
@@ -38,8 +39,9 @@ if(isset($_POST['nome'])) {
 
     //Redirecionar para o listar
     if (!$erros) {
+        
         header("location: listar.php");
-        # code...
+
     } else {
         $msgErro = implode("<br>", $erros);
         // echo $msgErro;

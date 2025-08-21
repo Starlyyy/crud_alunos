@@ -85,6 +85,22 @@ class AlunoDAO {
         }
     }
 
+    public function excluir(Aluno $aluno) {
+        try {
+            $sql = "DELETE FROM alunos WHERE id = ?";
+    
+            $stm = $this->conexao->prepare($sql);
+            $stm->execute([
+                $aluno->getId()
+            ]);
+            
+            return null;
+
+        } catch (PDOException $e) {
+            return $e;
+        }
+    }
+
     private function map(array $result) {
         $alunos = array();
         foreach($result as $r) {

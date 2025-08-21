@@ -9,7 +9,7 @@ $cursos = $cursoCont->listar();
 include_once(__DIR__ . "/../include/header.php");
 ?>
 
-<h3>Inserir aluno</h3>
+<h3><?= $aluno && $aluno->getId() > 0 ? "Alterar " : "Inserir "?> aluno</h3>
 
 <form method="POST" action="">
 

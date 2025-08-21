@@ -19,7 +19,7 @@ if (isset($_POST['nome'])) {
     $estrangeiro = trim($_POST['estrang']) ? trim($_POST['estrang']) : null;
     $idCurso     = is_numeric($_POST['curso']) ? $_POST['curso'] : null;;
 
-     //Criar um objeto Aluno para persistí-lo
+    //Criar um objeto Aluno para persistí-lo
     $aluno = new Aluno();
     $aluno->setId($id);
     $aluno->setNome($nome);

@@ -62,7 +62,7 @@ class AlunoController {
         $erro = $this->alunoDAO->alterar($aluno);
 
         if ($erro) {
-            array_push($erros, "Erro ao atualizar o aluno!");
+            array_push($erros, "Erro ao atualizar    o aluno!");
             if(AMB_DEV) {
                 array_push($erros, $erro->getMessage());
             }

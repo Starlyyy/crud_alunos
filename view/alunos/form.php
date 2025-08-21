@@ -55,6 +55,8 @@ include_once(__DIR__ . "/../include/header.php");
         </select>
     </div>
 
+    <input type="hidden" value="<?= $aluno ? $aluno->getId() : 0?>" name="id">
+
     <div>
         <button type="submit">Gravar</button>
     </div>

@@ -87,7 +87,9 @@ class AlunoDAO {
 
     public function excluir(Aluno $aluno) {
         try {
-            $sql = "DELETE FROM alunos WHERE id = ?";
+            $sql = "DELETE FROM alunos WHERE id = ?"; //podemos nomear os parametos -> :[nome do parameto aqui]
+
+            //$stm->bindValue("nome do parameto aqui", [valor que vai substituir -> $aluno, por exemplo])
     
             $stm = $this->conexao->prepare($sql);
             $stm->execute([

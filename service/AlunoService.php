@@ -19,9 +19,9 @@ class AlunoService {
             array_push($erros, "Informe a nacionalidade do aluno!");
         }
         
-        // if($aluno->getCurso()->getId() == NULL) {
-        //     array_push($erros, "Informe o curso do aluno!!");
-        // }
+        if($aluno->getCurso() == NULL) {
+            array_push($erros, "Informe o curso do aluno!!");
+        }
 
         return $erros;
     }

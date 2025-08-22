@@ -1,9 +1,9 @@
 <?php 
 
-require_once(__DIR__ . "/../../model/Aluno.php");
+// require_once(__DIR__ . "/../../model/Aluno.php");
 require_once(__DIR__ . "/../../controller/AlunoController.php");
 
-$aluno = new Aluno();
+// $aluno = new Aluno();
 $msgErro = "";  
 
 //receber o id
@@ -21,14 +21,19 @@ $aluno = $alunoCont->buscarPorId($id);
 
 //deu erro?
 if ($aluno) {
-    //nao
     
-    $aluno = $alunoCont->excluir($aluno);
-    header("location:listar.php");
+    $erros = $alunoCont->excluir($aluno);
+    
+    // erro
+    if ($erros) {
+        $msgErro = implode("<br>", $erros);
+        echo $msgErro;
+    } else {
+        header("location:listar.php");
+        exit;
+    }
     
 } else {
-    //sim -- o erro nao funciona T-T
-    $msgErro = implode("<br>", $aluno);
-    // exit;
+    
 
 }

@@ -73,13 +73,15 @@ class AlunoController {
     }
 
     public function excluir(Aluno $aluno){
-        $erros = $this->alunoService->validarAluno($aluno);
+        // $erros = $this->alunoService->validarAluno($aluno);
 
-        if (count($erros) > 0) {
-            return $erros;
-        }
+        // if (count($erros) > 0) {
+        //     return $erros;
+        // }
 
         //se nao deu erros, alterar o aluno no banco de dados
+
+        $erros = [];
 
         $erro = $this->alunoDAO->excluir($aluno);
 
